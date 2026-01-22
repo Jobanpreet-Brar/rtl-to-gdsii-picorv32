@@ -1,0 +1,19 @@
+# Ignore massive Innovus Databases
+results/*.enc.dat
+results/*.enc
+
+# Ignore temporary logs and history
+*.log
+*.cmd
+*.logv
+*.history
+*.key
+*.old
+
+# Ignore simulation trash
+sim/waves.shm
+sim/xcelium.d
+
+# Ignore trash folders if they exist
+pnr/timingReports
+synth/fv

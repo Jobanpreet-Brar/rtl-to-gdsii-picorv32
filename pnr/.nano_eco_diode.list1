@@ -1,0 +1,13 @@
+FORMATVERSION 1
+ADDINST ANTENNA u_core/DIODE_24 1 addPortAsNeeded
+INSTTERM A mem_wstrb[0] -
+ADDINST ANTENNA u_core/DIODE_25 1 addPortAsNeeded
+INSTTERM A mem_ready -
+ADDINST ANTENNA u_core/DIODE_26 1 addPortAsNeeded
+INSTTERM A mem_ready -
+ADDINST ANTENNA u_core/DIODE_27 1 addPortAsNeeded
+INSTTERM A mem_ready -
+ADDINST ANTENNA u_core/DIODE_28 1 addPortAsNeeded
+INSTTERM A mem_rdata[11] -
+ADDINST ANTENNA u_core/DIODE_29 1 addPortAsNeeded
+INSTTERM A mem_rdata[22] -

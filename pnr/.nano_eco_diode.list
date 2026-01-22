@@ -1,0 +1,47 @@
+FORMATVERSION 1
+ADDINST ANTENNA u_core/DIODE_1 1 addPortAsNeeded
+INSTTERM A u_core/n_47 -
+ADDINST ANTENNA u_core/DIODE_2 1 addPortAsNeeded
+INSTTERM A mem_rdata[6] -
+ADDINST ANTENNA u_core/DIODE_3 1 addPortAsNeeded
+INSTTERM A mem_rdata[6] -
+ADDINST ANTENNA u_core/DIODE_4 1 addPortAsNeeded
+INSTTERM A mem_rdata[6] -
+ADDINST ANTENNA u_core/DIODE_5 1 addPortAsNeeded
+INSTTERM A u_core/n_45 -
+ADDINST ANTENNA u_core/DIODE_6 1 addPortAsNeeded
+INSTTERM A mem_rdata[19] -
+ADDINST ANTENNA u_core/DIODE_7 1 addPortAsNeeded
+INSTTERM A mem_rdata[20] -
+ADDINST ANTENNA u_core/DIODE_8 1 addPortAsNeeded
+INSTTERM A mem_rdata[23] -
+ADDINST ANTENNA u_core/DIODE_9 1 addPortAsNeeded
+INSTTERM A mem_rdata[10] -
+ADDINST ANTENNA u_core/DIODE_10 1 addPortAsNeeded
+INSTTERM A mem_rdata[18] -
+ADDINST ANTENNA u_core/DIODE_11 1 addPortAsNeeded
+INSTTERM A mem_rdata[18] -
+ADDINST ANTENNA u_core/DIODE_12 1 addPortAsNeeded
+INSTTERM A mem_rdata[18] -
+ADDINST ANTENNA u_core/DIODE_13 1 addPortAsNeeded
+INSTTERM A mem_rdata[18] -
+ADDINST ANTENNA u_core/DIODE_14 1 addPortAsNeeded
+INSTTERM A mem_rdata[14] -
+ADDINST ANTENNA u_core/DIODE_15 1 addPortAsNeeded
+INSTTERM A mem_rdata[14] -
+ADDINST ANTENNA u_core/DIODE_16 1 addPortAsNeeded
+INSTTERM A mem_rdata[17] -
+ADDINST ANTENNA u_core/DIODE_17 1 addPortAsNeeded
+INSTTERM A mem_rdata[21] -
+ADDINST ANTENNA u_core/DIODE_18 1 addPortAsNeeded
+INSTTERM A mem_rdata[21] -
+ADDINST ANTENNA u_core/DIODE_19 1 addPortAsNeeded
+INSTTERM A mem_rdata[25] -
+ADDINST ANTENNA u_core/DIODE_20 1 addPortAsNeeded
+INSTTERM A mem_rdata[25] -
+ADDINST ANTENNA u_core/DIODE_21 1 addPortAsNeeded
+INSTTERM A mem_rdata[25] -
+ADDINST ANTENNA u_core/DIODE_22 1 addPortAsNeeded
+INSTTERM A mem_rdata[25] -
+ADDINST ANTENNA u_core/DIODE_23 1 addPortAsNeeded
+INSTTERM A mem_rdata[25] -

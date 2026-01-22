@@ -1,0 +1,15 @@
+FORMATVERSION 1
+ADDINST ANTENNA u_core/DIODE_1 1 addPortAsNeeded
+INSTTERM A u_core/n_4210 -
+ADDINST ANTENNA u_core/DIODE_2 1 addPortAsNeeded
+INSTTERM A u_core/n_4210 -
+ADDINST ANTENNA u_core/DIODE_3 1 addPortAsNeeded
+INSTTERM A u_core/n_4210 -
+ADDINST ANTENNA u_core/DIODE_4 1 addPortAsNeeded
+INSTTERM A u_core/n_4210 -
+ADDINST ANTENNA u_core/DIODE_5 1 addPortAsNeeded
+INSTTERM A u_core/n_53 -
+ADDINST ANTENNA u_core/DIODE_6 1 addPortAsNeeded
+INSTTERM A u_core/reg_op2\[26\]_9487 -
+ADDINST ANTENNA u_core/DIODE_7 1 addPortAsNeeded
+INSTTERM A u_core/n_1886 -
