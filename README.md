@@ -90,6 +90,7 @@ Total power consumption was analyzed at the Typical corner (1.8V, 25°C).
 * **Leakage Power:** <1 mW
 
 ![Power Report](results/Screenshots/Signoff_Power_Analysis.png)
+
 *Fig 7: Detailed Power Breakdown.*
 
 ---
