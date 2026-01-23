@@ -5,17 +5,19 @@
 ## Project Overview
 This project implements a complete **RTL-to-GDSII Physical Design flow** for the **PicoRV32**, a size-optimized RISC-V CPU core. The design was realized using the **Cadence Digital Flow** (Xcelium, Genus, Innovus, Tempus) at the **180nm technology node**.
 
-The primary goal was to take the synthesized netlist through the Place & Route (PnR) flow and produce a **tapeout-ready database** with closed timing and zero DRC/LVS violations at **100 MHz**.
+The goal was to take verified RTL through **synthesis, floorplan/power planning, placement, CTS, routing, and signoff checks**, and finish with a **routed layout database** that meets the target clock and passes **in-tool physical verification** (Innovus DRC + connectivity).
 
 ### Key Metrics
-| Metric | Value | Status |
-| :--- | :--- | :--- |
-| **Technology** | SCL 180nm | Verified |
-| **Frequency** | **100 MHz** | Met (Positive Slack) |
-| **Gate Count** | ~8,400 Cells | Optimized |
-| **Total Power** | **31.44 mW** | Static + Dynamic |
-| **Utilization** | ~70% | High Density |
-| **DRC/LVS** | 0 Violations | Clean |
+| Metric | Value |
+| :--- | :---: |
+| **Process / PDK** | **180nm** |
+| **Target Clock** | **100 MHz** (10 ns) |
+| **Setup WNS** | **+0.087 ns** |
+| **Hold WNS** | **+0.294 ns** |
+| **Standard Cells** | ~**8.4k** |
+| **Core Area** | **~228k µm²** |
+| **Utilization** | **~70%** |
+| **Total Power** | **31.44 mW** |
 
 ---
 
