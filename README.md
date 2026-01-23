@@ -2,69 +2,68 @@
 
 ![Final Layout](results/Screenshots/Innovus_Full_Chip.png)
 
-## 🚀 Project Overview
-This repository contains the complete **RTL-to-GDSII Physical Design flow** for the **PicoRV32**, a size-optimized RISC-V CPU core. The design was implemented using the **Cadence Digital Flow** (Xcelium, Genus, Innovus, Tempus) at the **180nm technology node**.
+## Project Overview
+This project implements a complete **RTL-to-GDSII Physical Design flow** for the **PicoRV32**, a size-optimized RISC-V CPU core. The design was realized using the **Cadence Digital Flow** (Xcelium, Genus, Innovus, Tempus) at the **180nm technology node**.
 
-The project objective was to take a synthesized netlist through the complete PnR flow to achieve a **tapeout-ready database** with clean timing and zero DRC/LVS violations at **100 MHz**.
+The primary goal was to take the synthesized netlist through the Place & Route (PnR) flow and produce a **tapeout-ready database** with closed timing and zero DRC/LVS violations at **100 MHz**.
 
-### 📊 Key Metrics
+### Key Metrics
 | Metric | Value | Status |
 | :--- | :--- | :--- |
-| **Technology** | SCL 180nm | ✅ |
-| **Frequency** | **100 MHz** | ✅ Met (Pos Slack) |
-| **Gate Count** | ~8,400 Cells | ✅ |
-| **Total Power** | **31.44 mW** | ✅ (Static + Dynamic) |
-| **Utilization** | ~70% | ✅ |
-| **DRC/LVS** | 0 Violations | ✅ Clean |
+| **Technology** | SCL 180nm | Verified |
+| **Frequency** | **100 MHz** | Met (Positive Slack) |
+| **Gate Count** | ~8,400 Cells | Optimized |
+| **Total Power** | **31.44 mW** | Static + Dynamic |
+| **Utilization** | ~70% | High Density |
+| **DRC/LVS** | 0 Violations | Clean |
 
 ---
 
-## 🛠️ Design Flow Stages
+## Design Flow Stages
 
 ### 1. Functional Verification (Xcelium)
-Before physical implementation, the RTL was verified to ensure the core correctly executes RISC-V instructions.
+Before starting physical implementation, I verified the RTL to ensure the core correctly executes RISC-V instructions.
 * **Process:** Compiled the Verilog source and testbench using Cadence Xcelium.
-* **Result:** Confirmed correct instruction fetch, decode, and execute behavior.
+* **Result:** Confirmed correct instruction fetch, decode, and execute behavior via waveform analysis.
 
 ![Waveforms](results/Screenshots/Verification_Waveforms.png)
 *Fig 1: Xcelium waveforms showing successful instruction execution.*
 
 ### 2. Logic Synthesis (Genus)
 Mapped the generic Verilog RTL to the 180nm standard cell library.
-* **Objective:** Translate RTL into a gate-level netlist.
+* **Process:** Translated the RTL into a gate-level netlist optimized for area and timing.
 * **Constraints:** Applied standard timing constraints (SDC) with a target clock period of 10ns (100 MHz).
-* **Outcome:** Generated a clean gate-level netlist with mapped standard cells.
+* **Outcome:** Generated a clean, mapped netlist ready for physical design.
 
 ![Synthesis Schematic](results/Screenshots/Logic_Synthesis_GateLevel.png)
 *Fig 2: Gate-level schematic showing standard cell mapping.*
 
 ### 3. Floorplanning & Power Planning (Innovus)
-This stage defined the chip dimensions and the power distribution network.
-* **Core Definition:** Created a square core area with appropriate utilization margins.
-* **Power Mesh:** Created a standard **M3/M4 Power Mesh (VDD/VSS)** structure using rings and stripes.
+This stage defined the physical dimensions of the chip and the power distribution network.
+* **Core Setup:** Defined a square core area with appropriate margins for I/O and utilization.
+* **Power Mesh:** Implemented a standard **M3/M4 Power Mesh (VDD/VSS)** using rings and stripes to ensure robust power delivery.
 
 ![Power Grid](results/Screenshots/Innovus_Power_Grid.png)
 *Fig 3: M3/M4 Power Mesh structure.*
 
 ### 4. Placement (Innovus)
-Standard cells were placed into the core rows.
-* **Execution:** Ran the standard placement command (`place_opt_design`) to place cells and optimize for timing/congestion.
-* **Outcome:** Valid placement with no overlaps and acceptable cell density.
+Standard cells were placed into the core rows using timing-driven and congestion-aware algorithms.
+* **Execution:** Used standard placement commands (`place_opt_design`) to position cells while minimizing wire length and avoiding local congestion.
+* **Outcome:** Achieved a valid placement with no cell overlaps and uniform density.
 
 ![Congestion Map](results/Screenshots/Congestion_Map.png)
 *Fig 4: Heat map showing placement congestion (Blue indicates low congestion).*
 
 ### 5. Clock Tree Synthesis (CTS)
-Built the clock distribution network.
-* **Objective:** Distribute the `clk` signal to all sequential elements.
-* **Implementation:** Ran the CCOpt (Clock Concurrent Optimization) engine to build a buffered clock tree and meet skew targets.
+Built the clock distribution network to deliver the clock signal across the chip.
+* **Implementation:** Ran the CCOpt (Clock Concurrent Optimization) engine to build a buffered clock tree that balances skew and meets setup/hold requirements.
 
 ![Clock Tree](results/Screenshots/Innovus_Clock_Tree.png)
 *Fig 5: Visualization of the clock tree.*
 
 ### 6. Routing & Signoff
 * **Routing:** Completed detailed signal routing using Metal 1 through Metal 6 layers.
-* **Physical Verification:** Performed Geometry (DRC) and Connectivity (LVS) checks to ensure manufacturability.
+* **Physical Verification:** Performed Geometry (DRC) and Connectivity (LVS) checks to confirm the design meets all foundry manufacturing rules.
 
 | Detailed Routing | Chip Zoom |
 | :---: | :---: |
@@ -73,12 +72,12 @@ Built the clock distribution network.
 
 ---
 
-## 📉 Final Analysis Results
+## Final Analysis Results
 
 ### Timing Closure (Tempus)
-Static Timing Analysis (STA) was performed to verify the design operates correctly at 100 MHz.
-* **Setup Analysis:** **MET**. The design meets the setup time requirements with positive slack.
-* **Hold Analysis:** **MET**. Hold violations were fixed during the routing optimization stage.
+Static Timing Analysis (STA) confirmed the design operates correctly at the target frequency of 100 MHz.
+* **Setup Analysis:** Met requirements with positive slack.
+* **Hold Analysis:** Met requirements; hold violations were resolved during the routing optimization stage.
 
 ![Setup Report](results/Screenshots/Tempus_setup.png)
 *Fig 6: Final Setup Timing Report showing positive slack.*
@@ -95,7 +94,7 @@ Total power consumption was analyzed at the Typical corner (1.8V, 25°C).
 
 ---
 
-## 📂 Repository Structure
+## Repository Structure
 ```text
 rtl-to-gdsii-picorv32/
 ├── rtl/                # Verilog Source Code (Core & Wrapper)
